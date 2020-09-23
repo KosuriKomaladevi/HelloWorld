@@ -5,7 +5,7 @@ pipeline {
         stage('Shared1') {
             steps {
                 script{
-                    sample
+                    sample 'Komaladevi Kosuri'
                 }
             }
         }
