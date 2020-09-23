@@ -9,5 +9,12 @@ pipeline {
                 }
             }
         }
+        stage('package'){
+            steps{
+                script{
+                    packaging
+                }
+            }
+        }
     }
 }
