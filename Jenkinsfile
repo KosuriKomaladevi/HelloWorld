@@ -21,5 +21,16 @@ pipeline {
                 }
             }
         }
+        stage('JFrog artifactory'){
+            steps{
+                script{
+                    artifactory([
+                        server : 'jfrog',
+                        tool : 'maven'
+                    ])
+                }
+            }
+        }
+
     }
 }
