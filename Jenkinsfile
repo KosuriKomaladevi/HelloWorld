@@ -1,9 +1,13 @@
+@Library('shared-library-github')_
 pipeline {
     agent any
     stages {
         stage('Stage1') {
             steps {
-                echo 'Hello World from stage1'
+                script{
+                    sample.call()
+                    echo 'shared library working'
+                }
             }
         }
     }
