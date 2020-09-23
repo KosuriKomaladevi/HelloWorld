@@ -5,7 +5,7 @@ pipeline {
         stage('Stage1') {
             steps {
                 script{
-                    sample.call()
+                    sample.call
                     echo 'shared library working'
                 }
             }
