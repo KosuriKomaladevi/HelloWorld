@@ -2,11 +2,10 @@
 pipeline {
     agent any
     stages {
-        stage('Stage1') {
+        stage('Shared1') {
             steps {
                 script{
                     sample
-                    echo 'shared library working'
                 }
             }
         }
