@@ -14,6 +14,13 @@ pipeline {
                 }
             }
         }
+        stage('building stage'){
+            steps{
+                script{
+                    toBuild
+                }
+            }
+        }
         stage('package'){
             steps{
                 script{
