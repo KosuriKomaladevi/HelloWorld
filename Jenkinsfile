@@ -28,13 +28,7 @@ pipeline {
                 }
             }
         }
-        stage('package stage'){
-            steps{
-                script{              
-                    toPackage()
-                }
-            }
-        }
+        
      
        stage('Deploying to Artifactory'){
              steps{
