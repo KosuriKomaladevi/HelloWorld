@@ -6,14 +6,14 @@ pipeline {
          stage('build stage'){
             steps{
                 script{
-                    toBuild()
+                    toBuild
                 }
             }
         }
         stage('package stage'){
             steps{
                 script{              
-                    packaging()
+                    packaging
                 }
             }
         }
