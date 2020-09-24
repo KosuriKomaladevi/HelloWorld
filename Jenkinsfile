@@ -8,14 +8,19 @@ pipeline {
         maven 'Maven3' 
     }
     stages{
-     stage('Maven Version') {
-            steps {
+     stage('checkout SCM'){
+            steps{
                 script{
-                    echo '===================entered into maven version================'
-                    sample 'Komaladevi Kosuri' 
-                    bat 'mvn --version'
+                    echo 'before ==============='
+                    toCheckout([
+                        $class : 'GitSCM',
+                        branches:[[name:'*/master']],
+                        userRemoteConfigs: [[url:'https://github.com/KosuriKomaladevi/HelloWorld.git']]
+                    ])
+                    echo 'after =================='
                 }
             }
+        }
         }
     }
 }
