@@ -1,9 +1,7 @@
 @Library('shared-library-github')_
 pipeline {
     agent any
-     options {
-        skipDefaultCheckout true
-    }
+    
     stages{
          stage('build stage'){
             steps{
