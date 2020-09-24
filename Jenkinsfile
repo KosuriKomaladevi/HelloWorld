@@ -1,15 +1,30 @@
 @Library('shared-library-github')_
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout true
+    }
     tools {
         maven 'Maven3' 
     }
     stages {
-        stage('Shared1') {
+        stage('checkout SCM'){
+            steps{
+                script{
+                    toCheckout([
+                        echo '=============entered into checkout stage===================='
+                        $class:'GitSCM',
+                        branches:[[name:'*/master']],
+                        userRemoteConfigs: [[url:'https://github.com/KosuriKomaladevi/HelloWorld.git']]
+                    ])
+                }
+            }
+        }
+        stage('Maven Version') {
             steps {
                 script{
-                    sample 'Komaladevi Kosuri'
-                    
+                    echo '===================entered into maven version================'
+                    sample 'Komaladevi Kosuri' 
                     bat 'mvn --version'
                 }
             }
@@ -17,6 +32,7 @@ pipeline {
         stage('building stage'){
             steps{
                 script{
+                    echo '============entered into build stage========================'
                     toBuild
                 }
             }
@@ -24,6 +40,7 @@ pipeline {
         stage('package'){
             steps{
                 script{
+                     echo '============entered into package stage========================'
                     packaging()
                 }
             }
@@ -31,7 +48,7 @@ pipeline {
         stage('JFrog artifactory'){
             steps{
                 script{
-                    echo 'entered into Jfrog artifactory'
+                    echo '======================entered into Jfrog artifactory====================='
                     def server = Artifactory.server('artifactory')
                       def rtMaven = Artifactory.newMavenBuild()
                       rtMaven.resolver server: server, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
