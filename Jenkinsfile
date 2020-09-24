@@ -12,8 +12,6 @@ pipeline {
             steps{
                 script{
                     toCheckout([
-                       
-                        $class:'GitSCM',
                         branches:[[name:'*/master']],
                         userRemoteConfigs: [[url:'https://github.com/KosuriKomaladevi/HelloWorld.git']]
                     ])
