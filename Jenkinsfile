@@ -1,6 +1,12 @@
 @Library('shared-library-github')_
 pipeline {
     agent any
+     options {
+        skipDefaultCheckout true
+    }
+    tools {
+        maven 'Maven3' 
+    }
     
     stages{
          stage('build stage'){
