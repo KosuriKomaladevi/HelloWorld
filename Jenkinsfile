@@ -9,6 +9,18 @@ pipeline {
     }
     
     stages{
+        stage('checkout SCM'){
+            steps{
+                script{
+                    echo 'before ==============='
+                    toCheckout([
+                        branch:'master',
+                        url:'https://github.com/KosuriKomaladevi/HelloWorld.git'
+                    ])
+                    echo 'after =================='
+                }
+            }
+        }
          stage('build stage'){
             steps{
                 script{
