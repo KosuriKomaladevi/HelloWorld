@@ -12,11 +12,11 @@ pipeline {
             steps{
                 script{
                     echo 'before ==============='
-                    toCheckout([
+                    toCheckout{
                         $class : 'GitSCM',
                         branches:[[name:'*/master']],
                         userRemoteConfigs: [[url:'https://github.com/KosuriKomaladevi/HelloWorld.git']]
-                    ])
+                    }
                     echo 'after =================='
                 }
             }
