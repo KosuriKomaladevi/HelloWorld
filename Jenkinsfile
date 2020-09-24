@@ -11,7 +11,7 @@ pipeline {
      stage('checkout SCM'){
             steps{
                 toCheckout([
-                        branch: "master"
+                        branch: "master",
                         url: "https://github.com/KosuriKomaladevi/HelloWorld.git"
                     ])
                   
