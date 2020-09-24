@@ -10,10 +10,9 @@ pipeline {
     stages{
      stage('checkout SCM'){
             steps{
-        
-                    gitCheckout{
-                        branche: "master"
-                        url:"https://github.com/KosuriKomaladevi/HelloWorld.git"
+                gitCheckout{
+                        branch: "master"
+                        url: "https://github.com/KosuriKomaladevi/HelloWorld.git"
                     }
                   
             }
