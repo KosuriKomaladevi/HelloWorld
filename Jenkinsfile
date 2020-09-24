@@ -1,12 +1,9 @@
 @Library('shared-library-github')_
 pipeline {
     agent any
-    
-    tools {
-        maven 'Maven3' 
-    }
+   
     stages{
-     stage('checkout SCM'){
+     stage('checkout Git SCM'){
             steps{
                 script{
                 toCheckout([
