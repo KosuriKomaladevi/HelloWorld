@@ -7,6 +7,7 @@ pipeline {
     tools {
         maven 'Maven3' 
     }
+    stages{
      stage('Maven Version') {
             steps {
                 script{
@@ -15,5 +16,6 @@ pipeline {
                     bat 'mvn --version'
                 }
             }
+        }
     }
 }
