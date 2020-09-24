@@ -12,12 +12,10 @@ pipeline {
         stage('checkout SCM'){
             steps{
                 script{
-                    echo 'before ==============='
                     toCheckout([
                         branch:'master',
                         url:'https://github.com/KosuriKomaladevi/HelloWorld.git'
                     ])
-                    echo 'after =================='
                 }
             }
         }
