@@ -12,7 +12,7 @@ pipeline {
             steps{
                 script{
                     toCheckout([
-                        echo '=============entered into checkout stage===================='
+                       
                         $class:'GitSCM',
                         branches:[[name:'*/master']],
                         userRemoteConfigs: [[url:'https://github.com/KosuriKomaladevi/HelloWorld.git']]
