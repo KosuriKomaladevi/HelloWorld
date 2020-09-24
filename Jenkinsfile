@@ -50,13 +50,9 @@ pipeline {
             steps{
                 script{
                     deployToTomcat([
-                            adapters:[
-                                tomcat8(credentialsId:'tomcat',
-                                path:'',
-                                url:'http://localhost:9090/')
-                                ],
-                                contextPath:"/MyApplication",
-                                war:" **/*.war "
+                               adapters: [tomcat8(credentialsId: 'tomcat-credentials', path: '', url: 'http://localhost:9090')], 
+                               contextPath: 'MyApplication',
+                               war: '" **/*.war"'
                     ])
                 }
             }
