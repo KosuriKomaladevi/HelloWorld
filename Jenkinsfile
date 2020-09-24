@@ -11,9 +11,9 @@ pipeline {
      stage('checkout SCM'){
             steps{
         
-                    toCheckout{
-                        branches:[[name:'*/master']]
-                        userRemoteConfigs: [[url:'https://github.com/KosuriKomaladevi/HelloWorld.git']]
+                    gitCheckout{
+                        branche: "master"
+                        url:"https://github.com/KosuriKomaladevi/HelloWorld.git"
                     }
                   
             }
