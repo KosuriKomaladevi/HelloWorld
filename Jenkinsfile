@@ -46,6 +46,21 @@ pipeline {
                  }
              }
          }
+        stage('Deploying to Tomcat Server'){
+            steps{
+                script{
+                    deployToTomcat([
+                            adapters:[
+                                tomcat8(credentialsId:'tomcat',
+                                path:'',
+                                url:'http://localhost:9090/')
+                                ],
+                                contextPath:"/MyApplication",
+                                war:" **/*.war "
+                    ])
+                }
+            }
+        }
         
         }
     }
