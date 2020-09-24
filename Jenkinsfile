@@ -19,16 +19,7 @@ pipeline {
                 }
             }
         }
-     stage('checkout Git SCM'){
-            steps{
-                script{
-                toCheckout([
-                        branch: "master",
-                        url: "https://github.com/KosuriKomaladevi/HelloWorld.git"
-                    ])
-                }
-                  
-            }
+     
        stage('Deploying to Artifactory'){
              steps{
                  script{
